@@ -28,9 +28,12 @@ Before starting the lab, please confirm that the previous lab has been closed no
 
 - Prepare the RDS environment:
     Menu -> Product And Services -> Search(RDS) -> ApsaraDB for RDS.
+    
     Select US (Silicon Valley) Regional -> Instance -> Exact Server was Running properly and then click manage.
-    Click Configure Whitelist to configure a whitelist.
+    
+    Click Configure Whitelist to configure a whitelist:
     Modify whitelist to "0.0.0.0/0"
+
     Create Administrator account:
         Account -> Create Account:
             Database account    : labex
@@ -48,7 +51,7 @@ Before starting the lab, please confirm that the previous lab has been closed no
     * Search for Elastic Compute Service
     Go to Instance... -> Silicon Valley Regional -> See IP Public to remote via ssh
 
-    ssh root@21.2.2.1
+    ssh root@47.254.15.239
 
     apt update && apt -y install git mysql-client
 
@@ -56,7 +59,7 @@ Before starting the lab, please confirm that the previous lab has been closed no
 
     cd test_db
 
-    mysql -ulabex -pAliyun-test -hYOUR-RDS-PRVIATE-ADDRESS < employees.sql
+    mysql -ulabex -pAliyun-test -hrm-2evc8ajdxyu5m2892qo.mysql.rds.aliyuncs.com < employees.sql
 
 
     Database Connection -> Internal Endpoint.
@@ -149,10 +152,10 @@ Publish All Queries
         import urllib.request
         import ssl
 
-        host = 'https://47bcbb0d03324951af88848d803a8a72-us-west-1.alicloudapi.com'
+        host = 'https://f0ac13a497934433ab5b83805fec18ee-us-west-1.alicloudapi.com'
         path = '/query2'
         method = 'GET'
-        appcode = 'bb9717fa2b604e51ae039d792c57f9c7'
+        appcode = 'edd530053e3d44b385dc6f33a92448e2'
         querys = 'dept_name=Marketing'
         bodys = {}
         url = host + path + '?' + querys
